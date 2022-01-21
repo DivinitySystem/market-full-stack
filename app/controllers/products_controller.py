@@ -63,9 +63,9 @@ def generate_bill():
 
       
       output = {
-        "total price" : total_price,
-        "total disccount" : total_disccount,
-        "total spent": total_price - total_disccount
+        "total_price" : total_price,
+        "total_disccount" : total_disccount,
+        "total_spent": total_price - total_disccount
         }
       return output, 200
     except KeyError as e:

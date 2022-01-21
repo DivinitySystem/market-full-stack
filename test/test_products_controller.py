@@ -31,12 +31,12 @@ def test_get_the_bill():
     response = post(url, json=burguer)
 
     assert response.status_code == 200
-    assert 'total price' in response.json()
-    assert 'total spent' in response.json()
-    assert 'total disccount' in response.json()
-    assert response.json()['total price'] == 10989
-    assert response.json()['total spent'] == 4995
-    assert response.json()['total disccount'] == 5994
+    assert 'total_price' in response.json()
+    assert 'total_spent' in response.json()
+    assert 'total_disccount' in response.json()
+    assert response.json()['total_price'] == 10989
+    assert response.json()['total_spent'] == 4995
+    assert response.json()['total_disccount'] == 5994
 
     salad = [{
     "id": "C8GDyLrHJb",
@@ -52,9 +52,9 @@ def test_get_the_bill():
 
     response = post(url, json=salad)
     assert response.status_code == 200
-    assert response.json()['total price'] == 2*499
-    assert response.json()['total disccount'] == (2*499)/10
-    assert response.json()['total spent'] == (2*499) - (2*499)/10 
+    assert response.json()['total_price'] == 2*499
+    assert response.json()['total_disccount'] == (2*499)/10
+    assert response.json()['total_spent'] == (2*499) - (2*499)/10 
 
     pizza = [{ "id": "Dwt5F7KAhi",
   "name": "Amazing Pizza!",
@@ -71,9 +71,9 @@ def test_get_the_bill():
     response = post(url, json=pizza)
     
     assert response.status_code == 200
-    assert response.json()['total price'] == 3297
-    assert response.json()['total disccount'] == 1799
-    assert response.json()['total spent'] == 1498
+    assert response.json()['total_price'] == 3297
+    assert response.json()['total_disccount'] == 1799
+    assert response.json()['total_spent'] == 1498
 
     fries = [{ "id": "4MB7UfpTQs",
       "name": "Boring Fries!",
@@ -84,9 +84,9 @@ def test_get_the_bill():
     response = post(url, json=fries)
 
     assert response.status_code == 200
-    assert response.json()["total price"] ==  1990
-    assert response.json()["total disccount"] ==  0
-    assert response.json()["total spent"] == 1990
+    assert response.json()["total_price"] ==  1990
+    assert response.json()["total_disccount"] ==  0
+    assert response.json()["total_spent"] == 1990
 
 def test_get_all_products_bill():
     url = "http://127.0.0.1:5000/products"
@@ -143,6 +143,6 @@ def test_get_all_products_bill():
 ]
     response = post(url, json=products)
     assert response.status_code == 200
-    assert response.json()['total price'] == 5993   
-    assert response.json()['total disccount'] == 2847.9
-    assert response.json()['total spent'] == 3145.1
+    assert response.json()['total_price'] == 5993   
+    assert response.json()['total_disccount'] == 2847.9
+    assert response.json()['total_spent'] == 3145.1
