@@ -6,6 +6,20 @@
 
 ### How to init:
 
+    Requirements:
+    Python, node and postgresql installed with a created database to set on .env
+
+    Run the following commands:
+      - cd project
+      - run python -m venv venv
+      - run source venv/bin/activate
+      - run pip install -r requirements.txt
+      - create a .env and change the .env.examples variables to you env
+      - run flask db upgrade
+      - run flask run
+      - run npm install
+      - run npm start
+
 ### Routes:
 
     Post /user:
@@ -140,7 +154,7 @@
 
         Response: 200
         {
-          "total price": float,
-          "total disccount": float,
-          "total spent": float
+          "total_price": float,
+          "total_disccount": float,
+          "total_spent": float
         }
